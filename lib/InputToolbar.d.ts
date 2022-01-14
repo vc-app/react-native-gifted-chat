@@ -12,7 +12,9 @@ export interface InputToolbarProps {
     containerStyle?: StyleProp<ViewStyle>;
     primaryStyle?: StyleProp<ViewStyle>;
     accessoryStyle?: StyleProp<ViewStyle>;
+    topAccessoryStyle?: StyleProp<ViewStyle>;
     renderAccessory?(props: InputToolbarProps): React.ReactNode;
+    renderTopAccessory?(props: InputToolbarProps): React.ReactNode;
     renderActions?(props: Actions['props']): React.ReactNode;
     renderSend?(props: Send['props']): React.ReactNode;
     renderComposer?(props: Composer['props']): React.ReactNode;
@@ -23,16 +25,19 @@ export default class InputToolbar extends React.Component<InputToolbarProps, {
 }> {
     static defaultProps: {
         renderAccessory: null;
+        renderTopAccessory: null;
         renderActions: null;
         renderSend: null;
         renderComposer: null;
         containerStyle: {};
         primaryStyle: {};
         accessoryStyle: {};
+        topAccessoryStyle: {};
         onPressActionButton: () => void;
     };
     static propTypes: {
         renderAccessory: PropTypes.Requireable<(...args: any[]) => any>;
+        renderTopAccessory: PropTypes.Requireable<(...args: any[]) => any>;
         renderActions: PropTypes.Requireable<(...args: any[]) => any>;
         renderSend: PropTypes.Requireable<(...args: any[]) => any>;
         renderComposer: PropTypes.Requireable<(...args: any[]) => any>;
@@ -40,6 +45,7 @@ export default class InputToolbar extends React.Component<InputToolbarProps, {
         containerStyle: PropTypes.Requireable<number | boolean | object>;
         primaryStyle: PropTypes.Requireable<number | boolean | object>;
         accessoryStyle: PropTypes.Requireable<number | boolean | object>;
+        topAccessoryStyle: PropTypes.Requireable<number | boolean | object>;
     };
     state: {
         position: string;
@@ -54,5 +60,6 @@ export default class InputToolbar extends React.Component<InputToolbarProps, {
     renderSend(): {} | null | undefined;
     renderComposer(): {} | null | undefined;
     renderAccessory(): JSX.Element | null;
+    renderTopAccessory(): JSX.Element | null;
     render(): JSX.Element;
 }

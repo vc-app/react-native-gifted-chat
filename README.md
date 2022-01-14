@@ -80,12 +80,14 @@
   </p>
 </p>
 
-## The future of GiftedChat 🎉 
+## The future of GiftedChat 🎉
+
 Please give us your advice: [Related PR](https://github.com/FaridSafi/react-native-gifted-chat/pull/1775)
 
 ## Please vote
 
 **GiftedChat** depends on other packages and some needs a boost, please vote for PRs will improve it, thanks:
+
 - https://github.com/watadarkstar/react-native-typing-animation/issues/18
 
 ## Features
@@ -136,7 +138,7 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { GiftedChat } from 'react-native-gifted-chat'
 
 export function Example() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([])
 
   useEffect(() => {
     setMessages([
@@ -154,7 +156,9 @@ export function Example() {
   }, [])
 
   const onSend = useCallback((messages = []) => {
-    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+    setMessages(previousMessages =>
+      GiftedChat.append(previousMessages, messages),
+    )
   }, [])
 
   return (
@@ -358,6 +362,7 @@ interface QuickReplies {
 - **`renderActions`** _(Function)_ - Custom action button on the left of the message composer
 - **`renderSend`** _(Function)_ - Custom send button; you can pass children to the original `Send` component quite easily, for example, to use a custom icon ([example](https://github.com/FaridSafi/react-native-gifted-chat/pull/487))
 - **`renderAccessory`** _(Function)_ - Custom second line of actions below the message composer
+- **`renderTopAccessory`** _(Function)_ - Custom line of actions above the message composer
 - **`onPressActionButton`** _(Function)_ - Callback when the Action button is pressed (if set, the default `actionSheet` will not be used)
 - **`bottomOffset`** _(Integer)_ - Distance of the chat from the bottom of the screen (e.g. useful if you display a tab bar)
 - **`minInputToolbarHeight`** _(Integer)_ - Minimum height of the input toolbar; default is `44`
