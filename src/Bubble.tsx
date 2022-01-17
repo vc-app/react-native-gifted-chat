@@ -372,7 +372,11 @@ export default class Bubble<
   }
 
   renderMessageImage() {
-    if (this.props.currentMessage && (this.props.currentMessage.image || this.props.currentMessage.images?.length)) {
+    if (
+      this.props.currentMessage &&
+      (this.props.currentMessage.image ||
+        this.props.currentMessage.images?.length)
+    ) {
       const { containerStyle, wrapperStyle, ...messageImageProps } = this.props
       if (this.props.renderMessageImage) {
         return this.props.renderMessageImage(messageImageProps)
