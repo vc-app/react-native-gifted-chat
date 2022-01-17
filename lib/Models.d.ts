@@ -37,12 +37,18 @@ export interface QuickReplies {
     values: Reply[];
     keepIt?: boolean;
 }
+export interface IMessageImage {
+    _id: string;
+    blurhash?: string;
+    signedUrl: string;
+}
 export interface IMessage {
     _id: string | number;
     text: string;
     createdAt: Date | number;
     user: User;
     image?: string;
+    images?: IMessageImage[];
     video?: string;
     audio?: string;
     system?: boolean;
